@@ -664,7 +664,7 @@ function loadWishes(reset=false){
   });
   query.once('value', snap=>{
     const items=[];
-    snap.forEach(c=>items.unshift({key:c.key,...c.val()}));
+    snap.forEach(c=>{ items.unshift({key:c.key,...c.val()}); });
     items.forEach(w=>appendWish(w));
     if(items.length) lastWishKey = items[items.length-1].key;
   });
